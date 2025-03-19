@@ -321,7 +321,7 @@ enum class EBPTextFilteringContext : uint8
 };
 
 UCLASS()
-class UAdvancedSteamFriendsLibrary : public UBlueprintFunctionLibrary
+class ADVANCEDSTEAMSESSIONS_API UAdvancedSteamFriendsLibrary : public UBlueprintFunctionLibrary
 {
 	GENERATED_BODY()
 public:
