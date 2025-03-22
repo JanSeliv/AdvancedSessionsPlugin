@@ -249,14 +249,18 @@ bool UAdvancedSteamFriendsLibrary::OpenSteamUserOverlay(const FBPUniqueNetId Uni
 	if (SteamAPI_Init())
 	{
 		uint64 id = *((uint64*)UniqueNetId.UniqueNetId->GetBytes());
-		if (DialogType == ESteamUserOverlayType::invitetolobby)
+		switch (DialogType)
 		{
+		case ESteamUserOverlayType::invitetolobby:
 			SteamFriends()->ActivateGameOverlayInviteDialog(id);
-		}
-		else
-		{
-			FString DialogName = EnumToString("ESteamUserOverlayType", (uint8)DialogType);
+			break;
+		case ESteamUserOverlayType::friendlist:
+			SteamFriends()->ActivateGameOverlay("Friends");
+			break;
+		default:
+			FString DialogName = EnumToString("ESteamUserOverlayType", static_cast<uint8>(DialogType));
 			SteamFriends()->ActivateGameOverlayToUser(TCHAR_TO_ANSI(*DialogName), id);
+			break;
 		}
 		return true;
 	}

@@ -269,7 +269,9 @@ enum class ESteamUserOverlayType : uint8
 	/*Opens the overlay in minimal mode prompting the user to ignore an incoming friend invite.*/
 	friendrequestignore,
 	/*Opens the invite overlay, invitations sent from this dialog will be for the provided lobby*/
-	invitetolobby
+	invitetolobby,
+	/*Opens the overlay window with friends list*/
+	friendlist,
 };
 
 static FString EnumToString(const FString& enumName, uint8 value)
