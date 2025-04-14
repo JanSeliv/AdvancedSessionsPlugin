@@ -272,6 +272,14 @@ bool UAdvancedSteamFriendsLibrary::OpenSteamUserOverlay(const FBPUniqueNetId Uni
 
 bool UAdvancedSteamFriendsLibrary::IsOverlayEnabled()
 {
+#if WITH_EDITOR
+	if (GIsEditor)
+	{
+		UE_LOG(AdvancedSteamFriendsLog, Verbose, TEXT("OpenSteamUserOverlay Couldn't init steamAPI: overlay is never accessible in editor!"));
+		return false;
+	}
+#endif // WITH_EDITOR
+
 #if (PLATFORM_WINDOWS || PLATFORM_MAC || PLATFORM_LINUX) && STEAM_SDK_INSTALLED
 	if (SteamAPI_Init())
 	{
