@@ -216,6 +216,17 @@ public:
 		bUseDirectPointer = false;
 		UniqueNetIdPtr = nullptr;
 	}
+
+	FBPUniqueNetId(const FUniqueNetIdRepl& UniqueId)
+	{
+		bUseDirectPointer = false;
+		UniqueNetIdPtr = nullptr;
+
+		if (UniqueId.IsValid())
+		{
+			SetUniqueNetId(UniqueId.GetV1());
+		}
+	}
 };
 
 USTRUCT(BluePrintType)
