@@ -272,16 +272,8 @@ bool UAdvancedSteamFriendsLibrary::OpenSteamUserOverlay(const FBPUniqueNetId Uni
 
 bool UAdvancedSteamFriendsLibrary::IsOverlayEnabled()
 {
-#if WITH_EDITOR
-	if (GIsEditor)
-	{
-		UE_LOG(AdvancedSteamFriendsLog, Verbose, TEXT("OpenSteamUserOverlay Couldn't init steamAPI: overlay is never accessible in editor!"));
-		return false;
-	}
-#endif // WITH_EDITOR
-
 #if (PLATFORM_WINDOWS || PLATFORM_MAC || PLATFORM_LINUX) && STEAM_SDK_INSTALLED
-	if (SteamAPI_Init())
+	if (IsSteamAvailable() && SteamAPI_Init())
 	{
 		return SteamUtils()->IsOverlayEnabled();
 	}
@@ -289,6 +281,21 @@ bool UAdvancedSteamFriendsLibrary::IsOverlayEnabled()
 
 	UE_LOG(AdvancedSteamFriendsLog, Warning, TEXT("OpenSteamUserOverlay Couldn't init steamAPI!"));
 	return false;
+}
+
+bool UAdvancedSteamFriendsLibrary::IsSteamAvailable()
+{
+#if (PLATFORM_WINDOWS || PLATFORM_MAC || PLATFORM_LINUX) && STEAM_SDK_INSTALLED
+#if WITH_EDITOR
+	if (GIsEditor)
+	{
+		return false;
+	}
+#endif // WITH_EDITOR
+	return !FParse::Param(FCommandLine::Get(), TEXT("nosteam"));
+#else // (PLATFORM_WINDOWS || PLATFORM_MAC || PLATFORM_LINUX) && STEAM_SDK_INSTALLED
+	return false;
+#endif
 }
 
 UTexture2D * UAdvancedSteamFriendsLibrary::GetSteamFriendAvatar(const FBPUniqueNetId UniqueNetId, EBlueprintAsyncResultSwitch &Result, SteamAvatarSize AvatarSize)
