@@ -60,7 +60,7 @@ public:
 	void OnJoinSessionComplete(FName SessionName, EOnJoinSessionCompleteResult::Type Result);
 
 	//const FUniqueNetId& /*UserId*/, const FUniqueNetId& /*FromId*/, const FString& /*AppId*/, const FOnlineSessionSearchResult& /*InviteResult*/
-	void OnSessionInviteReceivedMaster(const FUniqueNetId & PersonInvited, const FUniqueNetId & PersonInviting, const FString & AppId, const FOnlineSessionSearchResult& SessionToJoin);
+	virtual void OnSessionInviteReceivedMaster(const FUniqueNetId & PersonInvited, const FUniqueNetId & PersonInviting, const FString & AppId, const FOnlineSessionSearchResult& SessionToJoin);
 
 	// After a session invite has been accepted by the local player this event is triggered, call JoinSession on the session result to join it
 	UFUNCTION(BlueprintImplementableEvent, Category = "AdvancedFriends")
@@ -70,7 +70,7 @@ public:
 	FOnSessionUserInviteAcceptedDelegate SessionInviteAcceptedDelegate;
 	FDelegateHandle SessionInviteAcceptedDelegateHandle;
 
-	void OnSessionInviteAcceptedMaster(const bool bWasSuccessful, int32 LocalPlayer, TSharedPtr<const FUniqueNetId> PersonInviting, const FOnlineSessionSearchResult& SessionToJoin);
+	virtual void OnSessionInviteAcceptedMaster(const bool bWasSuccessful, int32 LocalPlayer, TSharedPtr<const FUniqueNetId> PersonInviting, const FOnlineSessionSearchResult& SessionToJoin);
 
 	// After a session invite has been accepted by the local player this event is triggered, call JoinSession on the session result to join it
 	// This function is currently not hooked up in any of Epics default subsystems, it is here for custom subsystems

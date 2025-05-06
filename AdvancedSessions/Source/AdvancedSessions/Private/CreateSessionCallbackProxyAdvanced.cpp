@@ -36,6 +36,14 @@ UCreateSessionCallbackProxyAdvanced* UCreateSessionCallbackProxyAdvanced::Create
 	return Proxy;
 }
 
+UCreateSessionCallbackProxyAdvanced& UCreateSessionCallbackProxyAdvanced::CreateAdvancedDefaultSession(UObject* WorldContextObject, APlayerController* PlayerController)
+{
+	static const TArray<FSessionPropertyKeyPair> EmptyExtraSettings{};
+	UCreateSessionCallbackProxyAdvanced* Callback = CreateAdvancedSession(WorldContextObject, EmptyExtraSettings, PlayerController);
+	check(Callback);
+	return *Callback;
+}
+
 void UCreateSessionCallbackProxyAdvanced::Activate()
 {
 	FOnlineSubsystemBPCallHelperAdvanced Helper(TEXT("CreateSession"), GEngine->GetWorldFromContextObject(WorldContextObject.Get(), EGetWorldErrorMode::LogAndReturnNull));
