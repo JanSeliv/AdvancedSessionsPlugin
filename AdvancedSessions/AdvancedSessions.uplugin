@@ -3,6 +3,7 @@
 	"FriendlyName": "Advanced Sessions",
 	"Version": 5.5,
 	"VersionName": "5.5",
+	"EngineVersion": "5.6.0",
 	"Description": "Adds new blueprint functions to handle more advanced session operations.",
 	"Category": "Advanced Sessions Plugin",
 	"CreatedBy": "Joshua Statzer",
