@@ -49,6 +49,10 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = AdvancedFriendsInterface)
 	bool bAutoTravelOnAcceptedUserInviteReceived = true;
 
+	// If true we will auto join a game session when an invite is received.
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = AdvancedFriendsInterface)
+	bool bAutoJoinOnAcceptedUserInviteReceived = true;
+	
 	//virtual void PostLoad() override;
 	virtual void Shutdown() override;
 	virtual void Init() override;

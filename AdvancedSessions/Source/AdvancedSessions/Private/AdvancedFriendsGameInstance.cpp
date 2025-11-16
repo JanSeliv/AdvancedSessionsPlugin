@@ -29,6 +29,11 @@ void UAdvancedFriendsGameInstance::OnSessionUserInviteAccepted(const bool bWasSu
 		OnJoinSessionCompleteDelegateHandle = SessionInterface->AddOnJoinSessionCompleteDelegate_Handle(
 		FOnJoinSessionCompleteDelegate::CreateUObject(this, &UAdvancedFriendsGameInstance::OnJoinSessionComplete));
 
+		if (!bAutoJoinOnAcceptedUserInviteReceived)
+		{
+			return;
+		}
+		
 		// Temp for 5.5, they aren't filling in the struct correctly
 		if (!InviteResult.Session.SessionSettings.bIsDedicated)
 		{
