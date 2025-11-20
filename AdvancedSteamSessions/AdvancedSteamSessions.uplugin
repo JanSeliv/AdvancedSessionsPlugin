@@ -2,9 +2,9 @@
     "FileVersion" : 3,
  
     "FriendlyName" : "Advanced Steam Sessions",
-    "Version" : 5.4,
-    "VersionName": "5.4",
-	"EngineVersion": "5.6.0",
+	"Version": 5.7,
+	"VersionName": "5.7",
+	"EngineVersion": "5.7.0",
     "Description" : "Adds new blueprint functions to handle more advanced session operations in Steam. REQUIRES ADVANCED SESSIONS",
     "Category" : "Advanced Sessions Plugin",
     "CreatedBy" : "Joshua Statzer",
