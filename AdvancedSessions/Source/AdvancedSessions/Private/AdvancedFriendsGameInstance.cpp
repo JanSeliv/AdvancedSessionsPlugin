@@ -22,9 +22,6 @@ UAdvancedFriendsGameInstance::UAdvancedFriendsGameInstance(const FObjectInitiali
 
 void UAdvancedFriendsGameInstance::OnSessionUserInviteAccepted(const bool bWasSuccessful, const int32 ControllerId, FUniqueNetIdPtr UserId, const FOnlineSessionSearchResult& InviteResult)
 {
-	if (!bAutoJoinSessionOnAcceptedUserInviteReceived)
-		return;
-
 	IOnlineSessionPtr SessionInterface = Online::GetSessionInterface(GetWorld());
 	if (SessionInterface.IsValid())
 	{
@@ -35,7 +32,7 @@ void UAdvancedFriendsGameInstance::OnSessionUserInviteAccepted(const bool bWasSu
 		OnJoinSessionCompleteDelegateHandle = SessionInterface->AddOnJoinSessionCompleteDelegate_Handle(
 		FOnJoinSessionCompleteDelegate::CreateUObject(this, &UAdvancedFriendsGameInstance::OnJoinSessionComplete));
 
-		if (!bAutoJoinOnAcceptedUserInviteReceived)
+		if (!bAutoJoinSessionOnAcceptedUserInviteReceived)
 		{
 			return;
 		}

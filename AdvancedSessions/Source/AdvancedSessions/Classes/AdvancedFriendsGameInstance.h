@@ -53,10 +53,6 @@ public:
 	// This can get in the way of Beacon Sessions, you may want to disable it.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = AdvancedFriendsInterface)
 	bool bAutoTravelOnAcceptedUserInviteReceived = false;
-
-	// If true we will auto join a game session when an invite is received.
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = AdvancedFriendsInterface)
-	bool bAutoJoinOnAcceptedUserInviteReceived = true;
 	
 	//virtual void PostLoad() override;
 	virtual void Shutdown() override;
