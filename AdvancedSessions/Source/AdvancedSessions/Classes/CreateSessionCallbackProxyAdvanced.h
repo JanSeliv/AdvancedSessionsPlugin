@@ -32,6 +32,9 @@ class UCreateSessionCallbackProxyAdvanced : public UOnlineBlueprintCallProxyBase
 	UFUNCTION(BlueprintCallable, meta=(BlueprintInternalUseOnly = "true", WorldContext="WorldContextObject",AutoCreateRefTerm="ExtraSettings"), Category = "Online|AdvancedSessions")
 		static UCreateSessionCallbackProxyAdvanced* CreateAdvancedSession(UObject* WorldContextObject, const TArray<FSessionPropertyKeyPair>& ExtraSettings, class APlayerController* PlayerController = NULL, int32 PublicConnections = 100, int32 PrivateConnections = 0, bool bUseLAN = false, bool bAllowInvites = true, bool bIsDedicatedServer = false, /*bool bUsePresence = true,*/ bool bUseLobbiesIfAvailable = true, bool bAllowJoinViaPresence = true, bool bAllowJoinViaPresenceFriendsOnly = false, bool bAntiCheatProtected = false, bool bUsesStats = false, bool bShouldAdvertise = true, bool bUseLobbiesVoiceChatIfAvailable = false, bool bStartAfterCreate = true);
 
+	/** Is code-only alternative to CreateAdvancedSession with default values for all parameters */
+	static ADVANCEDSESSIONS_API UCreateSessionCallbackProxyAdvanced& CreateAdvancedDefaultSession(UObject* WorldContextObject, APlayerController* PlayerController);
+
 	// UOnlineBlueprintCallProxyBase interface
 	virtual void Activate() override;
 	// End of UOnlineBlueprintCallProxyBase interface

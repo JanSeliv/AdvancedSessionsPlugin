@@ -269,7 +269,7 @@ enum class ESteamUserOverlayType : uint8
 	/*Opens the overlay in minimal mode prompting the user to ignore an incoming friend invite.*/
 	friendrequestignore,
 	/*Opens the invite overlay, invitations sent from this dialog will be for the provided lobby*/
-	invitetolobby
+	invitetolobby,
 };
 
 static FString EnumToString(const FString& enumName, uint8 value)
@@ -321,7 +321,7 @@ enum class EBPTextFilteringContext : uint8
 };
 
 UCLASS()
-class UAdvancedSteamFriendsLibrary : public UBlueprintFunctionLibrary
+class ADVANCEDSTEAMSESSIONS_API UAdvancedSteamFriendsLibrary : public UBlueprintFunctionLibrary
 {
 	GENERATED_BODY()
 public:
@@ -343,6 +343,10 @@ public:
 	// Returns if the steam overlay is currently active (this can return false during initial overlay hooking)
 	UFUNCTION(BlueprintPure, Category = "Online|AdvancedFriends|SteamAPI")
 		static bool IsOverlayEnabled();
+
+	// Returns true when nothing prevents steam to initialize, even if overlay is not launched yet
+	UFUNCTION(BlueprintPure, Category = "Online|AdvancedFriends|SteamAPI")
+	static bool IsSteamAvailable();
 
 	// Gets the level of a friends steam account, STEAM ONLY, Returns -1 if the steam level is not known, might need RequestSteamFriendInfo called first.
 	UFUNCTION(BlueprintCallable, Category = "Online|AdvancedFriends|SteamAPI")
