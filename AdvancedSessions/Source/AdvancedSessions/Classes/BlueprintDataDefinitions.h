@@ -13,7 +13,9 @@
 #include "OnlineSubsystemUtilsModule.h"
 #include "GameFramework/PlayerController.h"
 #include "Modules/ModuleManager.h"
-#include "OnlineSubsystemUtilsClasses.h"
+#include "Net/OnlineBlueprintCallProxyBase.h"
+#include "FindSessionsCallbackProxy.h"
+//#include "OnlineSubsystemUtilsClasses.h"
 #include "BlueprintDataDefinitions.generated.h"	
 
 UENUM(BlueprintType)

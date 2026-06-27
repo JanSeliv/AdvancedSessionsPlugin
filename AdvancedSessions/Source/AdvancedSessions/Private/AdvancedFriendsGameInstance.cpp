@@ -50,7 +50,7 @@ void UAdvancedFriendsGameInstance::OnSessionUserInviteAccepted(const bool bWasSu
 			SessionInterface->JoinSession(0, NAME_GameSession, InviteResult);
 		}
 	}
-	UE_LOG(AdvancedFriendsInterfaceLog, Log, TEXT("Called Join Session for Steam Friends List UI InviteResults: %s, UserId: %s"), *InviteResult.GetSessionIdStr(), *UserId->ToString());
+	UE_LOGF(AdvancedFriendsInterfaceLog, Log, "Called Join Session for Steam Friends List UI InviteResults: %ls, UserId: %ls", *InviteResult.GetSessionIdStr(), *UserId->ToString());
 }
 
 void UAdvancedFriendsGameInstance::OnJoinSessionComplete(FName SessionName, EOnJoinSessionCompleteResult::Type Result)
@@ -83,7 +83,7 @@ void UAdvancedFriendsGameInstance::Shutdown()
 	
 	if (!SessionInterface.IsValid())
 	{
-		UE_LOG(AdvancedFriendsInterfaceLog, Warning, TEXT("UAdvancedFriendsGameInstance Failed to get session system!"));
+		UE_LOGF(AdvancedFriendsInterfaceLog, Warning, "UAdvancedFriendsGameInstance Failed to get session system!");
 		//return;
 	}
 	else
@@ -106,7 +106,7 @@ void UAdvancedFriendsGameInstance::Shutdown()
 		else
 		{
 
-			UE_LOG(AdvancedFriendsInterfaceLog, Warning, TEXT("UAdvancedFriendsInstance Failed to get voice interface!"));
+			UE_LOGF(AdvancedFriendsInterfaceLog, Warning, "UAdvancedFriendsInstance Failed to get voice interface!");
 		}
 	}
 
@@ -144,7 +144,7 @@ void UAdvancedFriendsGameInstance::Init()
 	}
 	else
 	{
-		UE_LOG(AdvancedFriendsInterfaceLog, Warning, TEXT("UAdvancedFriendsInstance Failed to get session interface!"));
+		UE_LOGF(AdvancedFriendsInterfaceLog, Warning, "UAdvancedFriendsInstance Failed to get session interface!");
 		//return;
 	}
 
@@ -160,7 +160,7 @@ void UAdvancedFriendsGameInstance::Init()
 		else
 		{
 
-			UE_LOG(AdvancedFriendsInterfaceLog, Warning, TEXT("UAdvancedFriendsInstance Failed to get voice interface!"));
+			UE_LOGF(AdvancedFriendsInterfaceLog, Warning, "UAdvancedFriendsInstance Failed to get voice interface!");
 		}
 	}
 
@@ -175,7 +175,7 @@ void UAdvancedFriendsGameInstance::Init()
 	}
 	else
 	{
-		UE_LOG(AdvancedFriendsInterfaceLog, Warning, TEXT("UAdvancedFriendsInstance Failed to get identity interface!"));
+		UE_LOGF(AdvancedFriendsInterfaceLog, Warning, "UAdvancedFriendsInstance Failed to get identity interface!");
 	}
 
 
@@ -244,7 +244,7 @@ void UAdvancedFriendsGameInstance::OnPlayerLoginStatusChangedMaster(int32 Player
 		}
 		else
 		{
-			UE_LOG(AdvancedFriendsInterfaceLog, Warning, TEXT("UAdvancedFriendsInstance Failed to get a controller with the specified index in OnPlayerLoginStatusChangedMaster!"));
+			UE_LOGF(AdvancedFriendsInterfaceLog, Warning, "UAdvancedFriendsInstance Failed to get a controller with the specified index in OnPlayerLoginStatusChangedMaster!");
 		}
 	}
 }
@@ -267,7 +267,7 @@ void UAdvancedFriendsGameInstance::OnPlayerLoginChangedMaster(int32 PlayerNum)
 		}
 		else
 		{
-			UE_LOG(AdvancedFriendsInterfaceLog, Warning, TEXT("UAdvancedFriendsInstance Failed to get a controller with the specified index in OnPlayerLoginChanged!"));
+			UE_LOGF(AdvancedFriendsInterfaceLog, Warning, "UAdvancedFriendsInstance Failed to get a controller with the specified index in OnPlayerLoginChanged!");
 		}
 	}
 }
@@ -296,7 +296,7 @@ void UAdvancedFriendsGameInstance::OnPlayerTalkingStateChangedMaster(TSharedRef<
 			}
 			else
 			{
-				UE_LOG(AdvancedFriendsInterfaceLog, Warning, TEXT("UAdvancedFriendsInstance Failed to get a controller with the specified index in OnVoiceStateChanged!"));
+				UE_LOGF(AdvancedFriendsInterfaceLog, Warning, "UAdvancedFriendsInstance Failed to get a controller with the specified index in OnVoiceStateChanged!");
 			}
 		}
 	}
@@ -353,12 +353,12 @@ void UAdvancedFriendsGameInstance::OnSessionInviteReceivedMaster(const FUniqueNe
 		}
 		else
 		{
-			UE_LOG(AdvancedFriendsInterfaceLog, Warning, TEXT("UAdvancedFriendsInstance Failed to get a controller with the specified index in OnSessionInviteReceived!"));
+			UE_LOGF(AdvancedFriendsInterfaceLog, Warning, "UAdvancedFriendsInstance Failed to get a controller with the specified index in OnSessionInviteReceived!");
 		}
 	}
 	else
 	{
-		UE_LOG(AdvancedFriendsInterfaceLog, Warning, TEXT("UAdvancedFriendsInstance Return a bad search result in OnSessionInviteReceived!"));
+		UE_LOGF(AdvancedFriendsInterfaceLog, Warning, "UAdvancedFriendsInstance Return a bad search result in OnSessionInviteReceived!");
 	}
 }
 
@@ -398,12 +398,12 @@ void UAdvancedFriendsGameInstance::OnSessionInviteAcceptedMaster(const bool bWas
 			}
 			else
 			{ 
-				UE_LOG(AdvancedFriendsInterfaceLog, Warning, TEXT("UAdvancedFriendsInstance Failed to get a controller with the specified index in OnSessionInviteAccepted!"));
+				UE_LOGF(AdvancedFriendsInterfaceLog, Warning, "UAdvancedFriendsInstance Failed to get a controller with the specified index in OnSessionInviteAccepted!");
 			}
 		}
 		else
 		{
-			UE_LOG(AdvancedFriendsInterfaceLog, Warning, TEXT("UAdvancedFriendsInstance Return a bad search result in OnSessionInviteAccepted!"));
+			UE_LOGF(AdvancedFriendsInterfaceLog, Warning, "UAdvancedFriendsInstance Return a bad search result in OnSessionInviteAccepted!");
 		}
 	}
 }
