@@ -321,11 +321,11 @@ bool UFindSessionsCallbackProxyAdvanced::CompareVariants(const FVariantData &A, 
 		switch (Comparator)
 		{
 		case EOnlineComparisonOpRedux::Equals:
-			return bA == bB; break;
+			return bA == bB;
 		case EOnlineComparisonOpRedux::NotEquals:
-			return bA != bB; break;
+			return bA != bB;
 		default:
-			return false;break;
+			return false;
 		}
 	}
 	case EOnlineKeyValuePairDataType::Double:
@@ -336,19 +336,19 @@ bool UFindSessionsCallbackProxyAdvanced::CompareVariants(const FVariantData &A, 
 		switch (Comparator)
 		{
 		case EOnlineComparisonOpRedux::Equals:
-			return bA == bB; break;
+			return bA == bB;
 		case EOnlineComparisonOpRedux::NotEquals:
-			return bA != bB; break;
+			return bA != bB;
 		case EOnlineComparisonOpRedux::GreaterThanEquals:
-			return (bA == bB || bA > bB); break;
+			return (bA == bB || bA > bB);
 		case EOnlineComparisonOpRedux::LessThanEquals:
-			return (bA == bB || bA < bB); break;
+			return (bA == bB || bA < bB);
 		case EOnlineComparisonOpRedux::GreaterThan:
-			return bA > bB; break;
+			return bA > bB;
 		case EOnlineComparisonOpRedux::LessThan:
-			return bA < bB; break;
+			return bA < bB;
 		default:
-			return false; break;
+			return false;
 		}
 	}
 	case EOnlineKeyValuePairDataType::Float:
@@ -362,19 +362,19 @@ bool UFindSessionsCallbackProxyAdvanced::CompareVariants(const FVariantData &A, 
 		switch (Comparator)
 		{
 		case EOnlineComparisonOpRedux::Equals:
-			return bA == bB; break;
+			return bA == bB;
 		case EOnlineComparisonOpRedux::NotEquals:
-			return bA != bB; break;
+			return bA != bB;
 		case EOnlineComparisonOpRedux::GreaterThanEquals:
-			return (bA == bB || bA > bB); break;
+			return (bA == bB || bA > bB);
 		case EOnlineComparisonOpRedux::LessThanEquals:
-			return (bA == bB || bA < bB); break;
+			return (bA == bB || bA < bB);
 		case EOnlineComparisonOpRedux::GreaterThan:
-			return bA > bB; break;
+			return bA > bB;
 		case EOnlineComparisonOpRedux::LessThan:
-			return bA < bB; break;
+			return bA < bB;
 		default:
-			return false; break;
+			return false;
 		}
 	}
 	case EOnlineKeyValuePairDataType::Int32:
@@ -385,19 +385,19 @@ bool UFindSessionsCallbackProxyAdvanced::CompareVariants(const FVariantData &A, 
 		switch (Comparator)
 		{
 		case EOnlineComparisonOpRedux::Equals:
-			return bA == bB; break;
+			return bA == bB;
 		case EOnlineComparisonOpRedux::NotEquals:
-			return bA != bB; break;
+			return bA != bB;
 		case EOnlineComparisonOpRedux::GreaterThanEquals:
-			return (bA == bB || bA > bB); break;
+			return (bA == bB || bA > bB);
 		case EOnlineComparisonOpRedux::LessThanEquals:
-			return (bA == bB || bA < bB); break;
+			return (bA == bB || bA < bB);
 		case EOnlineComparisonOpRedux::GreaterThan:
-			return bA > bB; break;
+			return bA > bB;
 		case EOnlineComparisonOpRedux::LessThan:
-			return bA < bB; break;
+			return bA < bB;
 		default:
-			return false; break;
+			return false;
 		}
 	}
 	case EOnlineKeyValuePairDataType::Int64:
@@ -408,19 +408,19 @@ bool UFindSessionsCallbackProxyAdvanced::CompareVariants(const FVariantData &A, 
 		switch (Comparator)
 		{
 		case EOnlineComparisonOpRedux::Equals:
-			return bA == bB; break;
+			return bA == bB;
 		case EOnlineComparisonOpRedux::NotEquals:
-			return bA != bB; break;
+			return bA != bB;
 		case EOnlineComparisonOpRedux::GreaterThanEquals:
-			return (bA == bB || bA > bB); break;
+			return (bA == bB || bA > bB);
 		case EOnlineComparisonOpRedux::LessThanEquals:
-			return (bA == bB || bA < bB); break;
+			return (bA == bB || bA < bB);
 		case EOnlineComparisonOpRedux::GreaterThan:
-			return bA > bB; break;
+			return bA > bB;
 		case EOnlineComparisonOpRedux::LessThan:
-			return bA < bB; break;
+			return bA < bB;
 		default:
-			return false; break;
+			return false;
 		}
 	}
 
@@ -432,18 +432,18 @@ bool UFindSessionsCallbackProxyAdvanced::CompareVariants(const FVariantData &A, 
 		switch (Comparator)
 		{
 		case EOnlineComparisonOpRedux::Equals:
-			return bA == bB; break;
+			return bA == bB;
 		case EOnlineComparisonOpRedux::NotEquals:
-			return bA != bB; break;
+			return bA != bB;
 		default:
-			return false; break;
+			return false;
 		}
 	}
 
 	case EOnlineKeyValuePairDataType::Empty:
 	case EOnlineKeyValuePairDataType::Blob:
 	default:
-		return false; break;
+		return false;
 	}
 
 
